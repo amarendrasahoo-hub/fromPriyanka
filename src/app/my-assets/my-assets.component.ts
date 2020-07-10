@@ -27,7 +27,11 @@ export class MyAssetsComponent implements OnInit {
 
  
     this.myAsset.getMyAssets()
-             .subscribe(data => this.myAssets = data);
+             .subscribe(
+              data => { 
+              this.myAssets = data
+              console.log(data)
+             });
     
   }
 }

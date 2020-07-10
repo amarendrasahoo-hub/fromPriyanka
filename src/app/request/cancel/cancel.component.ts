@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MyAssetService } from '../../services/my-asset.service';
 import { MyAsset } from '../../model/myAsset';
-import { AgGridAngular } from 'ag-grid-angular';
 import { ConditionPosition } from 'ag-grid-community/dist/lib/filter/provided/simpleFilter';
-import {SelectionModel} from '@angular/cdk/collections';
-import {MatTableDataSource} from '@angular/material/table';
+import { SelectionModel } from '@angular/cdk/collections';
+import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/collections';
 
@@ -82,7 +81,10 @@ dataSource : MatTableDataSource<PeriodicElement>;
       //          .subscribe(data  => {this.myRecordset = data});
 
     this.myAsset.getMyAssets()
-                .subscribe(data  => {this.dataSourceBoth.data = data});
+                .subscribe(data  => {
+                  this.dataSourceBoth.data = data
+                  console.log(data)
+                });
 
     // this.myAsset.getMyAssets()
     //    .subscribe(data => this.myAssets = data);
@@ -175,20 +177,6 @@ dataSource : MatTableDataSource<PeriodicElement>;
       });
   }
 
-
-  //  getSelectedRows(dataSource) {
-    // const selectedNodes = this.agGrid.api.getSelectedNodes();
-    // const selectedData = selectedNodes.map(node => node.data);
-    // const selectedDataStringPresentation = selectedData
-    //   .map(node => node.type + ' ' + node.model)
-    //   .join(', ');
-    // alert(`Selected nodes: ${selectedDataStringPresentation}`);
-    //console.log(dataSource);
-  //}
-
-  // highlight(element: PeriodicElement) {
-  //   element.highlighted = !element.highlighted;
-  // }
   onReturn(){
     let returnAssetes: string = "";
     for(let i = 0; i<this.slectedRecords.length; i++){
@@ -203,7 +191,8 @@ dataSource : MatTableDataSource<PeriodicElement>;
     }
     console.log(returnAssetes);
   }
-  onCancel(){}
+  onCancel()
+  {}
 }
 
 export class AssetDataSource extends DataSource<any> {

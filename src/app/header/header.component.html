@@ -14,7 +14,16 @@
         <ul class="nav-menu">
           <li class="menu-active"><a [routerLink]= "['home']" href="#intro">Home</a></li>
           <li><a href="#about">Account</a></li>
-          <li><a href="#services">Asset Management</a></li>
+          <li><a href="#services">Asset Management</a>
+            <ul>
+              <li><a [routerLink]= "['hardsoft']" href="#">Hardware / Software Request</a></li>
+              <li><a [routerLink]= "['sharedfolder']" href="">Shared Folder Access</a></li>
+              <li><a [routerLink]= "['usb']" href="">USB / Pen Drive Access</a></li>
+              <li><a [routerLink]= "['webmail']" href="">Webmail Access</a></li>
+              <li><a [routerLink]= "['remote']" href="">Citrix / VPN Access</a></li>
+              <li><a [routerLink]= "['cancel']" href="">Return IT Assets</a></li>
+            </ul>
+          </li>
           <li><a href="#featured-services">SAP Requests</a></li>
           <!-- <li><a href="#team">Team</a></li>
           <li class="menu-has-children"><a href="">Drop Down</a>

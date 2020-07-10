@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'assetreq', component: AssetReqComponent },
-  { path: 'new-request', component: HeaderComponent },
+  { path: 'header', component: HeaderComponent },
   { path: 'hardsoft', component: HardsoftComponent },
   { path: 'sharedfolder', component: SharedfolderComponent},
   { path: 'usb', component: UsbAccessComponent},

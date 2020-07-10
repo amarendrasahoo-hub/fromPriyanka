@@ -65,6 +65,11 @@
         <th mat-header-cell *matHeaderCellDef> Tcode </th>
         <td mat-cell *matCellDef="let element"> {{element.tcode}} </td>
       </ng-container>
+
+      <ng-container matColumnDef="route">
+        <th mat-header-cell *matHeaderCellDef> Route </th>
+        <td mat-cell *matCellDef="let element"> {{element.stepsforexecution}} </td>
+      </ng-container>
       
       <ng-container matColumnDef="stepsforexecution">
         <th mat-header-cell *matHeaderCellDef> Steps for Execution </th>
@@ -86,11 +91,28 @@
         <td mat-cell *matCellDef="let element"> {{element.status}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="upload">
+        <th mat-header-cell *matHeaderCellDef> Upload File </th>
+        <td mat-cell *matCellDef="let element">
+          <input type="file" #fileInput id="fileUpload" name="fileUpload" multiple="multiple" 
+          accept="image/*" style="display:none;" />
+          <button mat-button color="warn" (click)="onClick()">  
+            <mat-icon>file_upload</mat-icon>  
+            Upload  
+          </button>
+        </td>
+      </ng-container>
+
       <!-- Action Column -->
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element"> 
+        <!-- <td mat-cell *matCellDef="let element"> 
           <a (click)="openDialog('Update',element)">Edit</a> | <a (click)="openDialog('Delete',element)">Delete</a>  
+        </td> -->
+        <td mat-cell *matCellDef="let element">
+           
+          <input type="file" #fileInput id="fileUpload" name="fileUpload" multiple="multiple" 
+          accept="image/*" style="display:none;" />
         </td>
       </ng-container>
    
@@ -104,29 +126,17 @@
 <!-- File Upload Testing -->
   <div class="mainContainer">
     <div class="content">
-        <div class="header">
-            <h1>Angular File Upload</h1>
-        </div>
         <div class="row margin25">
-
-            <div class="col-md-4">
-
-            </div>
             <div class="col-md-4">
                 <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text upload" (click)="upload()" id="btnUpload">Upload</span>
-                    </div>
                     <div class="custom-file">
-                        <form action="/api/upload" method="post" enctype="multipart/form-data">
-                            <input (change)="fileChange($event)"  type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                        </form>
+                            <input (change)="onFileSelected($event)"  type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                     </div>
+                    <div class="input-group-prepend">
+                      <span class="input-group-text upload" (click)="upload()" id="btnUpload">Upload</span>
+                  </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-
             </div>
         </div>
     </div>

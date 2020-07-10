@@ -4,6 +4,7 @@ import { AddrowUatComponent } from '../addrow-uat/addrow-uat.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UatService } from '../services/uat.service';
 import { PostResponse } from '../model/post-response';
+import { HttpClient } from '@angular/common/http';
 
 export interface UsersData {
   id: number;
@@ -66,7 +67,7 @@ export class SubmitUatComponent implements OnInit {
   });
 
   @ViewChild(MatTable,{static:true}) table: MatTable<any>;
-  constructor(public dialog: MatDialog, private uatservice : UatService) { }
+  constructor(public dialog: MatDialog, private uatservice : UatService, private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -178,8 +179,8 @@ export class SubmitUatComponent implements OnInit {
     // file upload
     uploadedFiles: Array <File> ;
 
-    fileChange(element) {
-      this.uploadedFiles = element.target.files;
+    onFileSelected(event) {
+      console.log(event);
     }
     upload() {
       let formData = new FormData();
