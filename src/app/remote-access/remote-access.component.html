@@ -1,7 +1,7 @@
 <section>
 <div class="container">
        
-    <form [formGroup]="form" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center center">
+    <form [formGroup]="remoteAccessForm" (ngSubmit)="submit()" fxLayout="column" fxLayoutAlign="center center">
         <p>Request for Remote Access</p>
         <div class="form-group">
             
@@ -50,4 +50,5 @@
         <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
     </form>
 </div>
+{{ respMessage }}
 </section>
