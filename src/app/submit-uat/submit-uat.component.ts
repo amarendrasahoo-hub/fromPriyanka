@@ -188,6 +188,6 @@ export class SubmitUatComponent implements OnInit {
           formData.append("uploads[]", this.uploadedFiles[i], this.uploadedFiles[i].name);
       }
     }
-
+    onClick(){}
   }
 

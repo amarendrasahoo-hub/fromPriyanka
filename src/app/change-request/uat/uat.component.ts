@@ -12,7 +12,7 @@ export class UatComponent implements OnInit {
 
   scripts: Array<TestScript> = [];
   newScript: any = {};
-
+  respMessage : '';  
   public uatForm: FormGroup = new FormGroup({
     ticket: new FormControl( null, Validators.required),
     uatStatus: new FormControl(null, Validators.required),

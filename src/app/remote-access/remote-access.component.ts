@@ -21,6 +21,7 @@ export class RemoteAccessComponent implements OnInit {
     {value: 3, viewValue: 'Afsys'}
 
   ];
+  ddlstatus = true;
   remoteAccessForm = new FormGroup({
     accesstype: new FormControl('', Validators.required),
     citrixapps: new FormControl(''),
@@ -28,6 +29,7 @@ export class RemoteAccessComponent implements OnInit {
   });
   model = '';
   respMessage = '';
+  
   constructor(private remoteaccessserviceobj : RemoteaccessService) { }
 
   ngOnInit() {
